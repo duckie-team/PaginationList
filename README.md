@@ -1,6 +1,6 @@
 # PaginationList
 
-Custom LazyList with Pagination added to Jetpack Compose LazyList
+Custom LazyList with Pagination added to Jetpack Compose LazyList.
 
 ---
 
