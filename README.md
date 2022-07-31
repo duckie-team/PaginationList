@@ -19,6 +19,7 @@ PaginationList()
 1. PagingSource
 2. insertSeparators/shouldSeparate
 3. header/footer
+4. offline caching with Room
 
 # TODO
 
