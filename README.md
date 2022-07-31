@@ -18,7 +18,7 @@ PaginationList()
 
 1. PagingSource
 2. insertSeparators
-3. header and footer
+3. header/footer
 
 # TODO
 
