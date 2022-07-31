@@ -11,8 +11,7 @@ The existing Paging3 library is cumbersome to use, and integration with Jetpack 
 ## Usage
 
 ```kotlin
-PaginationColumn()
-PaginationRow()
+PaginationList()
 ```
 
 # TODO
