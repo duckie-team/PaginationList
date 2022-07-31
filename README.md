@@ -17,7 +17,7 @@ PaginationList()
 ### Support
 
 1. PagingSource
-2. insertSeparators
+2. insertSeparators/shouldSeparate
 3. header/footer
 
 # TODO
