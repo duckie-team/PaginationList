@@ -23,6 +23,7 @@ PaginationList()
 5. in-memory caching
 6. retry and exception handling method
 7. auto remove duplicate request
+8. PagingSource.getRefreshKey()
 
 # TODO
 
