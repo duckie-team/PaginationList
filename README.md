@@ -14,6 +14,11 @@ The existing Paging3 library is cumbersome to use, and integration with Jetpack 
 PaginationList()
 ```
 
+### Support
+
+1. PagingSource
+2. insertSeparators
+
 # TODO
 
 ---
