@@ -22,8 +22,7 @@ PaginationList()
 4. offline caching with Room
 5. in-memory caching
 6. retry and exception handling method
-7. remove duplicate request
-8. 
+7. auto remove duplicate request
 
 # TODO
 
