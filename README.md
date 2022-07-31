@@ -19,7 +19,7 @@ PaginationList()
 1. PagingSource
 2. insertSeparators/shouldSeparate
 3. header/footer
-4. offline caching with Room
+4. offline caching with Room (RemoteMediator)
 5. in-memory caching
 6. retry and exception handling method
 7. auto remove duplicate request
