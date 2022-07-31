@@ -8,7 +8,7 @@ Custom LazyList with Pagination added to Jetpack Compose LazyList.
 
 The existing Paging3 library is cumbersome to use, and integration with Jetpack Compose is not smooth. Therefore, we made a LazyList that simply includes Pagination.
 
-## Usage
+## API Design
 
 ```kotlin
 PaginationList()
