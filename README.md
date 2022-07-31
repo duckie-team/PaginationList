@@ -20,7 +20,8 @@ PaginationList()
 2. insertSeparators/shouldSeparate
 3. header/footer
 4. offline caching with Room
-5. retry method
+5. in-memory caching
+6. retry method
 
 # TODO
 
