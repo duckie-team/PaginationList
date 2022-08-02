@@ -24,6 +24,7 @@ PaginationList()
 6. retry and exception handling method
 7. auto remove duplicate request
 8. PagingSource.getRefreshKey()
+9. online + offline page load
 
 # TODO
 
