@@ -27,7 +27,7 @@ interface PaginationListConfig {
 @Immutable
 interface PageItemState {
     val isFirstItem: Boolean
-    val isLastItem: Boolean? // null if unknown, only true when next page key is null and the last paged item is visible
+    val isLastItem: Boolean // only true when next page key is null and the last paged item is visible
     val isPlaceholder: Boolean
     val isLoadedFromOffline: Boolean
     val exception: Throwable?
