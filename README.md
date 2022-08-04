@@ -30,7 +30,7 @@ interface PaginationListScope<T> {
 interface PagingSource<T, Key> {
     suspend fun loadPage(pageKey: Key): Result<List<T>>
 
-    fun calcNextPageKey(currentPageKey: Key): Key? // return: null if next page key is none
+    fun calcNextPageKey(currentPageKey: Key, lastLoadedItem: T?): Key? // return: null if next page key is none
 }
 
 @Composable
