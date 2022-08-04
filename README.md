@@ -76,7 +76,6 @@ interface PagingSource<T> {
  * - auto remove duplicate request
  * - online + offline page load
  */
-
 @Composable
 fun <T> PaginationColumn(
     modifier: Modifier = Modifier,
@@ -92,7 +91,5 @@ fun <T> PaginationColumn(
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     userScrollEnabled: Boolean = true,
     content: PaginationListScope<T>.() -> Unit
-) {
-
-}
+)
 ```
