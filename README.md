@@ -6,11 +6,12 @@ interface PaginationListState<Key> {
     val isPaging: Boolean
     val isRetrying: Boolean
 
-    val prevPageKey: Key
+    val prevPageKey: Key?
     val currentPageKey: Key
     val nextPageKey: Key?
 
-    suspend fun retry()
+    suspend fun refresh() // reset all paged data, and restart from the init
+    suspend fun retry() // re-request last paged
     fun cancel() // cancel all pagination requests and shutdown paging system
     fun exception(exception: Throwable) // To notify the exception raised by the user to PageItemState
 }
@@ -37,8 +38,9 @@ interface PageItemState {
 
 @Immutable
 interface PaginationListScope<T> {
-    // can be footer, header, separator, item, etc...
-    fun items(content: @Composable (item: T, state: PageItemState) -> Unit)
+    // can be header, footer, separator, item, etc...
+    // item is null when it's placeholder
+    fun items(content: @Composable (item: T?, state: PageItemState) -> Unit)
 }
 
 /**
@@ -56,7 +58,10 @@ interface PagingSource<T, Key> {
     fun mustLoadFromOnline(item: T): Boolean
 
     // lastItem: last item on the current page
-    fun calcNextPageKey(currentPageKey: Key, lastItem: T): Key? // return: null if next page key is none.
+    fun calcNextPageKey(
+        currentPageKey: Key,
+        lastItem: T
+    ): Key? // return: null if next page key is none
 }
 
 /**
