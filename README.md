@@ -12,7 +12,7 @@ interface PaginationListConfig {
 @Immutable
 interface PageItemState {
     val isFirstItem: Boolean
-    val isLastItem: Boolean // only true when last loaded page item is visible
+    val isLastItem: Boolean // only true when last loaded item is visible
     val isPlaceholder: Boolean
     val exception: Throwable?
 
