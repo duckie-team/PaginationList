@@ -38,12 +38,7 @@ interface PageItemState {
 @Immutable
 interface PaginationListScope<T> {
     // can be footer, header, separator, item, etc...
-    fun items(
-        content: @Composable (
-            item: T,
-            state: PageItemState
-        ) -> Unit
-    )
+    fun items(content: @Composable (item: T, state: PageItemState) -> Unit)
 }
 
 /**
