@@ -3,8 +3,8 @@
 ```kotlin
 @Immutable
 interface PaginationListState {
-    val isPageEnd: Boolean
     val isPageBegin: Boolean
+    val isPageEnd: Boolean
 
     val isPaging: Boolean // `isLoading` is better naming?
     val isRetrying: Boolean
@@ -14,15 +14,6 @@ interface PaginationListState {
     val prevPageNumber: Int
     val nowPageNumber: Int
     val nextPageNumber: Int
-}
-
-@Immutable
-interface PaginationListController {
-    val pageSize: Int
-    val initPageListSize: Int
-    val prefetchPageListDistance: Int
-    val enablePlaceholders: Boolean
-    val loadedPageListMaxSize: Int
 
     fun retry()
     fun cancel()
@@ -30,27 +21,31 @@ interface PaginationListController {
 }
 
 @Immutable
+interface PaginationListConfig {
+    val pageSize: Int
+    val initPageListSize: Int
+    val prefetchPageListDistance: Int
+    val enablePlaceholders: Boolean
+    val loadedPageListMaxSize: Int
+}
+
+@Immutable
+interface PageItemState {
+    val isFirstItem: Boolean
+    val isLastItem: Boolean
+    val isPlaceholder: Boolean
+    val isLoadedFromOffline: Boolean
+}
+
+@Immutable
 interface PaginationListScope<T> {
-    fun header(
-        visible: (state: PaginationListState) -> Boolean,
-        content: @Composable (controller: PaginationListController, fromOffline: Boolean) -> Unit
-    )
-
-    fun footer(
-        visible: (state: PaginationListState) -> Boolean,
-        content: @Composable (controller: PaginationListController, fromOffline: Boolean) -> Unit
-    )
-
-    fun separater(
-        visible: (state: PaginationListState) -> Boolean,
+    // can be footer, header, separator, item, etc...
+    fun items(
         content: @Composable (
-            prevItem: T?, // null if no prev item
-            nextItem: T?, // null if no next item
-            fromOffline: Boolean
+            item: T,
+            state: PageItemState
         ) -> Unit
     )
-
-    fun items(content: @Composable (item: T, fromOffline: Boolean) -> Unit)
 }
 
 /**
@@ -69,7 +64,8 @@ interface PagingSource<T> {
 }
 
 /**
- * ### We want to implement this.
+ * ### We want to implement this:
+ *
  * - separater
  * - header/footer
  * - retry and exception handling method
@@ -79,7 +75,7 @@ interface PagingSource<T> {
 @Composable
 fun <T> PaginationColumn(
     modifier: Modifier = Modifier,
-    pagingController: PaginationListController,
+    pagingConfig: PaginationListConfig,
     pagingSource: PagingSource<T>,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     reverseLayout: Boolean = false,
