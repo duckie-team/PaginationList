@@ -3,9 +3,6 @@
 ```kotlin
 @Immutable
 interface PaginationListState {
-    val isPageBegin: Boolean
-    val isPageEnd: Boolean
-
     val isPaging: Boolean // `isLoading` is better naming?
     val isRetrying: Boolean
     val exception: Exception?
